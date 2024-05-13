@@ -18,27 +18,73 @@
         display: flex;
         justify-content: center;
       }
+      @font-face {
+        font-family: moj;
+        src: url("./FreeSans.ttf");
+      }
+      img {
+        width: 40vh;
+      }
+      .bg {
+        width: 100%;
+        height: auto;
+      }
+      @media (orientation: landscape) {
+        img {
+          height: 40vh;
+          width: auto;
+        }
+        .bg {
+          width: auto;
+          height: 100%;
+        }
+      }
     </style>
   </head>
-  <body>
+  <body style="overflow: hidden">
     <div class="main">
-      <img src="bg.jpg" style="height: 100vh" />
-
+      <img class="bg" src="./ok.jpg" />
       <div style="position: absolute; top: 8vh" id="qrcode"></div>
+      <div
+        style="
+          height: 25vh;
+          width: 45vh;
+          position: absolute;
+          bottom: 25vh;
+          font-family: 'moj';
+          color: white;
+          font-size: 3vh;
+          font-weight: bold;
+          justify-content: left;
+          flex-direction: column;
+        "
+      >
+        <p id="name"></p>
+        <p id="txn">txn</p>
+        <p id="venue">Venue: Tamasha Bar Stock Exchange, Bindal Mall, Sonari</p>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
     <script>
       const urlParams = new URLSearchParams(window.location.search);
-      const qrcode = new QRCode(document.getElementById("qrcode"), {
-        text:
-          "https://drakedrac.github.io/HIPHOPNIGHT/verify.html?ok=" +
-          urlParams.get("id"),
-        width: 392,
-        height: 392,
-        colorDark: "#000",
-        colorLight: "#fff",
-        correctLevel: QRCode.CorrectLevel.H,
-      });
+      if (urlParams.get("name") != null) {
+        document.getElementById("name").innerHTML =
+          "Name: " + urlParams.get("name");
+      }
+      if (urlParams.get("id") != null) {
+        const qrcode = new QRCode(document.getElementById("qrcode"), {
+          text:
+            "https://drakedrac.github.io/HIPHOPNIGHT/verify.html?ok=" +
+            urlParams.get("id"),
+          width: 385,
+          height: 385,
+          colorDark: "#000",
+          colorLight: "#fff",
+          correctLevel: QRCode.CorrectLevel.H,
+        });
+        document.getElementById("txn").innerHTML =
+          "Transaction ID: " + urlParams.get("id");
+      }
     </script>
   </body>
 </html>

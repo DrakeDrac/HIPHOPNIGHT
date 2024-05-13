@@ -128,18 +128,13 @@
         <hr
           style="width: 85%; background-color: #c5c3c3; height: 1px; border: 0"
         />
-        <img src="qr.png" style="height: 200px; padding: 20px" />
+        <div style="height: 200px" id="qrcode"></div>
         <p
           style="padding-bottom: 10px; padding-left: 20px; padding-right: 20px"
         >
-          Please scan the QR code. After paying the preset amount, press
-          proceed.
+          Please scan the QR code. After paying the amount, press proceed.
         </p>
-        <button
-          class="button-17"
-          onclick="window.open('./verify.html','_self')"
-          role="button"
-        >
+        <button class="button-17" onclick="proceed()" role="button">
           Proceed
         </button>
         <p style="padding: 5px; padding-left: 20px; padding-right: 20px">
@@ -154,5 +149,33 @@
         />
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
+    <script>
+      const moj = new URLSearchParams(window.location.search);
+      let count = moj.get("count");
+      let amount = 525 * parseInt(count);
+      const qrcode = new QRCode(document.getElementById("qrcode"), {
+        text:
+          "upi://pay?pa=9508921526@mbk&pn=HIPHOP%20NIGHT&am=" +
+          amount +
+          ".00&cu=INR&tn=forevayung",
+        width: 200,
+        height: 200,
+        colorDark: "#000",
+        colorLight: "#fff",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+      document.getElementById("price").innerHTML = "INR " + amount;
+      function proceed() {
+        window.open(
+          "./verify.html?name=" +
+            moj.get("name") +
+            "&count=" +
+            moj.get("count"),
+          "_self"
+        );
+      }
+    </script>
   </body>
 </html>

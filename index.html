@@ -128,25 +128,101 @@
             >
           </li>
           <li>
-            <a href="" style="font-size: 20px">Any queries? Click here</a>
+            <a href="https://wa.me/916204870440" style="font-size: 20px"
+              >Any queries? Click here</a
+            >
           </li>
-          <li style="padding: 50px">
+          <li style="margin-top: 30px; width: 65%">
+            <a style="font-size: 20px">Name:</a>
+          </li>
+
+          <input
+            style="
+              border: 0;
+              width: 60%;
+
+              border-bottom: 2px solid gray;
+              outline: 0;
+              background-color: transparent;
+              color: white;
+              font-family: camel;
+            "
+            id="name"
+            placeholder="Name"
+          />
+          <li style="margin-top: 30px; width: 65%">
+            <a style="font-size: 20px">Tickets:</a>
+          </li>
+          <div
+            class="input-group"
+            style="
+              margin-top: -20px;
+
+              text-align: center;
+              width: 60%;
+              display: flex;
+              align-items: baseline;
+            "
+          >
+            <div
+              style="width: 10%; background-color: transparent"
+              class="input-group-btn"
+            >
+              <button
+                style="
+                  background-color: transparent;
+                  border: 0;
+                  color: white;
+                  font-size: large;
+                "
+                id="down"
+                class="btn btn-default"
+                onclick=" down('1')"
+              >
+                -
+              </button>
+            </div>
             <input
-              plac
+              type="number"
+              id="count"
+              class="form-control input-number"
+              value="1"
+              min="1"
+              max="5"
+              disabled
               style="
                 border: 0;
+                width: 80%;
+                margin-top: 30px;
+
                 border-bottom: 2px solid gray;
                 outline: 0;
                 background-color: transparent;
                 color: white;
                 font-family: camel;
               "
-              id="name"
-              placeholder="name.."
             />
-          </li>
-          <li style="padding: 50px">
-            <a href="index-one.html" data-text="Proceed" data-img="./card.png"
+            <div
+              style="width: 10%; background-color: transparent"
+              class="input-group-btn"
+            >
+              <button
+                style="
+                  background-color: transparent;
+                  border: 0;
+                  color: white;
+                  font-size: large;
+                "
+                id="up"
+                class="btn btn-default"
+                onclick="up('5')"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <li style="padding: 30px">
+            <a onclick="proceed()" data-text="Proceed" data-img="./card.png"
               >Proceed</a
             >
           </li>
@@ -185,5 +261,15 @@
     <script src="js/bez.js"></script>
     <script src="js/pace.js"></script>
     <script src="js/index.js"></script>
+    <script>
+      function proceed() {
+        window.open(
+          "./pay.html?name=" +
+            encodeURIComponent(document.getElementById("name").value) +
+            "&count=" +
+            encodeURIComponent(document.getElementById("count").value)
+        );
+      }
+    </script>
   </body>
 </html>

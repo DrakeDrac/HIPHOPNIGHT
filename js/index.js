@@ -18,6 +18,20 @@ SLIDER ON SONGS PAGE
 ==========
 
 */
+function up(max) {
+  document.getElementById("count").value =
+    parseInt(document.getElementById("count").value) + 1;
+  if (document.getElementById("count").value >= parseInt(max)) {
+    document.getElementById("count").value = max;
+  }
+}
+function down(min) {
+  document.getElementById("count").value =
+    parseInt(document.getElementById("count").value) - 1;
+  if (document.getElementById("count").value <= parseInt(min)) {
+    document.getElementById("count").value = min;
+  }
+}
 
 // LOADER
 paceOptions = {
