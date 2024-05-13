@@ -278,14 +278,25 @@
       }
       const app = firebase.initializeApp(firebaseConfig);
       const db = app.firestore();
+      const moj = new URLSearchParams(window.location.search);
+
       const createQR = () => {
         let txn = document.getElementById("txn").value;
         if (txn != "") {
           db.collection("payments")
             .doc(txn)
-            .set({ txn: txn, count: 1, used: false })
+            .set({
+              txn: txn,
+              count: moj.get("count") || 1,
+              used: false,
+              name: moj.get("name") || "ohno",
+            })
             .then((r) => console.log(r));
-          window.open("./QR.html?id=" + txn);
+          if (moj.get("name") && moj.get("name") != "") {
+            window.open("./QR.html?id=" + txn + "&name=" + moj.get("name"));
+          } else {
+            window.open("./QR.html?id=" + txn);
+          }
         }
       };
     </script>
