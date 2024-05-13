@@ -150,6 +150,11 @@ body {
   background-position: center;
   background-size: cover;
 }
+@media (orientation: landscape) {
+  #header {
+    background-position: 0px 15%;
+  }
+}
 .navigation {
   width: 100%;
   position: fixed;
