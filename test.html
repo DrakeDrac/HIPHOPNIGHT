@@ -1,0 +1,43 @@
+<video
+  id="intro"
+  height="200"
+  src="ok.mp4"
+  controls="false"
+  autoplay
+  muted
+></video>
+<button style="height: 50px" onclick="document.getElementById('intro').play()">
+  moja
+</button>
+<canvas id="myCanvas" style="border: 1px solid #000000"> </canvas>
+<style>
+  #intro {
+    position: absolute;
+    visibility: hidden;
+  }
+</style>
+<script>
+  document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      var v = document.getElementById("intro");
+      var canvas = document.getElementById("myCanvas");
+      var context = canvas.getContext("2d");
+
+      v.addEventListener(
+        "play",
+        function () {
+          draw(this, context, canvas.width, canvas.height);
+        },
+        false
+      );
+    },
+    false
+  );
+
+  function draw(v, c, w, h) {
+    if (v.paused || v.ended) return false;
+    c.drawImage(v, 0, 0, w, h);
+    setTimeout(draw, 20, v, c, w, h);
+  }
+</script>

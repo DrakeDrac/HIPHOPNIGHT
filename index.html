@@ -1,3 +1,189 @@
-<html>
-  guuuu gugu gagaaaaa
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forevaYUNG</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--favicon-img-->
+    <link rel="icon" type="image/png" href="images/clock.png" />
+    <!--favicon-img-->
+
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- MAIN CONTENT -->
+    <main id="index-one">
+      <!-- CUSTOM CURSOR -->
+      <div class="cursor scale"></div>
+      <div class="cursor-two scale"></div>
+      <!-- CUSTOM CURSOR -->
+
+      <!-- PRELOADER -->
+      <div id="preloader">
+        <div class="p">
+          <img src="images/headphone.png" alt="headphone" />
+          Please wait
+        </div>
+      </div>
+      <!-- PRELOADER -->
+
+      <!-- HEADER -->
+      <div class="test" id="header">
+        <!-- NAVIGATION -->
+        <div class="navigation">
+          <div class="logo hover">
+            <a href="#" style="font-weight: bold" class="text">FOREVAYUNG</a>
+          </div>
+          <div class="menu-bar hover">
+            <div class="menu-bar-name text">Tickets</div>
+            <div class="menu-bar-lines text">
+              <div class="menu-bar-line"></div>
+              <div class="menu-bar-line"></div>
+            </div>
+          </div>
+        </div>
+        <!-- NAVIGATION -->
+
+        <!-- SOCIAL-MEDIA-LINKS -->
+        <div class="social-media-links">
+          <ul>
+            <li>
+              <a
+                href="https://www.instagram.com/mishrakshitij17"
+                data-text="Instagram"
+                class="text hover"
+                >IG</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- SOCIAL-MEDIA-LINKS -->
+
+        <!-- HEADPHONE IMG -->
+        <div class="headphone img text">
+          <img src="images/headphone.png" class="text" alt="headphone" />
+        </div>
+        <!-- HEADPHONE IMG -->
+
+        <div class="new-release img text">
+          <img src="card.png" alt="new-release" />
+          <div
+            class="song-details"
+            style="justify-content: center; align-items: center; display: flex"
+          >
+            <button
+              type="button"
+              id="submit"
+              style="
+                user-select: none;
+                box-sizing: border-box;
+                opacity: 0.8;
+                background: transparent;
+                outline: none;
+                border: 1px solid rgb(255, 255, 255, 0.4);
+                color: rgb(245, 245, 245);
+                padding: 10px 30px;
+                font-size: 15px;
+                font-family: camel;
+                text-transform: uppercase;
+                cursor: pointer;
+                transition: all 0.4s ease;
+                position: relative;
+                overflow: hidden;
+                z-index: 2;
+              "
+              class="buy"
+            >
+              Buy Tickets
+            </button>
+          </div>
+        </div>
+        <!-- NEW RELEASE -->
+      </div>
+      <!-- HEADER -->
+
+      <!-- NAVIGATION CONTENT -->
+
+      <div class="navigation-content">
+        <div class="navigation-logo hover opacity">
+          <a href="#" class="text">FOREVAYUNG</a>
+        </div>
+        <ul class="navigation-ul">
+          <li style="text-align: center">
+            <a style="font-size: 20px"
+              >Note: Payment must be made through UPI, your Transaction ID is
+              your ticket.<br />
+              (an optional pass can be generated)<br />
+              Please follow all the instructions carefully.</a
+            >
+          </li>
+          <li>
+            <a href="" style="font-size: 20px">Any queries? Click here</a>
+          </li>
+          <li style="padding: 50px">
+            <input
+              plac
+              style="
+                border: 0;
+                border-bottom: 2px solid gray;
+                outline: 0;
+                background-color: transparent;
+                color: white;
+                font-family: camel;
+              "
+              id="name"
+              placeholder="name.."
+            />
+          </li>
+          <li style="padding: 50px">
+            <a href="index-one.html" data-text="Proceed" data-img="./card.png"
+              >Proceed</a
+            >
+          </li>
+        </ul>
+        <div class="navigation-close hover about-close opacity">
+          <div class="navigation-close-line"></div>
+          <div class="navigation-close-line"></div>
+        </div>
+
+        <div class="project-preview"></div>
+
+        <!-- HEADPHONE IMG -->
+        <div class="headphone-navigation opacity">
+          <img
+            src="images/headphone.png"
+            title="headphone zone"
+            class="text"
+            alt="headphone"
+          />
+        </div>
+        <!-- HEADPHONE IMG -->
+
+        <!-- SOCIAL MEDIA LINKS -->
+        <div class="social-media-links-navigation">
+          <ul>
+            <li><a href="#" class="text hover opacity">IG</a></li>
+          </ul>
+        </div>
+        <!-- SOCIAL MEDIA LINKS -->
+      </div>
+
+      <!-- NAVIGATION CONTENT -->
+    </main>
+    <!-- MAIN CONTENT -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bez.js"></script>
+    <script src="js/pace.js"></script>
+    <script src="js/index.js"></script>
+  </body>
 </html>
