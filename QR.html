@@ -7,84 +7,155 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>E-PASS</title>
+    <title>E-Pass yungFOREVA</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="" />
     <style>
-      .main {
-        height: 100vh;
-        width: 100%;
-        display: flex;
-        justify-content: center;
+      .card {
+        border-radius: 15px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: rgb(87, 87, 87);
       }
       @font-face {
         font-family: moj;
         src: url("./FreeSans.ttf");
       }
       img {
-        width: 40vh;
-      }
-      .bg {
         width: 100%;
-        height: auto;
-      }
-      @media (orientation: landscape) {
-        img {
-          height: 40vh;
-          width: auto;
-        }
-        .bg {
-          width: auto;
-          height: 100%;
-        }
       }
     </style>
   </head>
-  <body style="overflow: hidden">
-    <div class="main">
-      <img class="bg" src="./ok.jpg" />
-      <div style="position: absolute; top: 8vh" id="qrcode"></div>
+  <body
+    style="
+      background-color: rgb(15, 15, 15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      height: 100vh;
+    "
+  >
+    <div
+      class="card"
+      style="
+        height: auto;
+        width: 400px;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        color: #ffffff;
+        font-family: 'moj';
+        text-align: left;
+      "
+    >
       <div
         style="
-          height: 25vh;
-          width: 45vh;
-          position: absolute;
-          bottom: 25vh;
-          font-family: 'moj';
-          color: white;
-          font-size: 3vh;
-          font-weight: bold;
-          justify-content: left;
+          width: 80%;
+          display: flex;
           flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-evenly;
         "
       >
-        <p id="name"></p>
-        <p id="txn">txn</p>
-        <p id="venue">Venue: Tamasha Bar Stock Exchange, Bindal Mall, Sonari</p>
+        <div
+          style="
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            padding-top: 15px;
+            text-align: end;
+          "
+        >
+          <p
+            style="
+              font-weight: bold;
+              font-size: 15px;
+              margin-top: 3px;
+              margin-right: 8px;
+            "
+            id=""
+          >
+            GENERAL <br />ACCESS
+          </p>
+
+          <img style="height: 50px; width: auto" src="./moj.png" />
+        </div>
+        <div style="padding-bottom: 10px; padding-top: 20px">
+          <div style="font-weight: bold; font-size: large" id="name">
+            YOUR NAME
+          </div>
+          <div
+            style="
+              font-weight: lighter;
+              font-size: medium;
+              color: rgb(199, 199, 199);
+            "
+            id="date"
+          >
+            DATE: 17-05-24
+          </div>
+          <div
+            style="
+              font-weight: lighter;
+              font-size: medium;
+              color: rgb(199, 199, 199);
+            "
+            id="venue"
+          >
+            VENUE: TAMASHA STOCK BAR EXCHANGE
+          </div>
+        </div>
+
+        <hr
+          style="width: 100%; background-color: #ffffff; height: 1px; border: 0"
+        />
+        <div
+          style="font-weight: bold; font-size: 30px; align-self: center"
+          id="name"
+        >
+          HIPHOP NIGHT
+        </div>
+        <hr
+          style="width: 100%; background-color: #ffffff; height: 1px; border: 0"
+        />
+        <div
+          style="position: relative; align-self: center; padding: 20px"
+          id="qrcode"
+        ></div>
+        <div
+          style="
+            font-weight: bold;
+            padding-bottom: 20px;
+            font-size: 30px;
+            align-self: center;
+          "
+          id="txn"
+        >
+          123456789
+        </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
+
     <script>
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get("name") != null) {
         document.getElementById("name").innerHTML =
-          "Name: " + urlParams.get("name");
+          "NAME: " + urlParams.get("name").toUpperCase();
       }
-      if (urlParams.get("id") != null) {
-        const qrcode = new QRCode(document.getElementById("qrcode"), {
-          text:
-            "https://drakedrac.github.io/HIPHOPNIGHT/verify.html?ok=" +
-            urlParams.get("id"),
-          width: 385,
-          height: 385,
-          colorDark: "#000",
-          colorLight: "#fff",
-          correctLevel: QRCode.CorrectLevel.H,
-        });
-        document.getElementById("txn").innerHTML =
-          "Transaction ID: " + urlParams.get("id");
-      }
+      const qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: "https://forevayung.live/ticket.html?id=" + urlParams.get("id"),
+        width: 385,
+        height: 385,
+        colorDark: "#000",
+        colorLight: "#fff",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+      document.getElementById("txn").innerHTML = urlParams.get("id");
     </script>
   </body>
 </html>
