@@ -154,7 +154,9 @@
     <script>
       const moj = new URLSearchParams(window.location.search);
       let count = moj.get("count");
-      let amount = 525 * parseInt(count);
+      let amount = 525;
+      if (parseInt(count) > 3) amount = 2000;
+      else amount = 525 * parseInt(count);
       const qrcode = new QRCode(document.getElementById("qrcode"), {
         text:
           "upi://pay?pa=ishaanjoshi97@oksbi&pn=HIPHOP%20NIGHT&am=" +
