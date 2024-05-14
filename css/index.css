@@ -128,10 +128,30 @@ body {
     background-image: url("./bg3.png");
   }
 }
-/*Featured Content Background*/
+@media (orientation: landscape) {
+  @-webkit-keyframes test {
+    0% {
+      background-image: url("./bgg1.png");
+    }
+    33% {
+      background-image: url("./bgg2.png");
+    }
+    66% {
+      background-image: url("./bgg3.png");
+    }
+  }
 
+  #header {
+    background-image: url("./bgg1.png");
+  }
+}
+/*Featured Content Background*/
+@media (orientation: portrait) {
+  #header {
+    background-image: url("./bg1.png");
+  }
+}
 #header {
-  background-image: url("./bg1.png");
   -webkit-transition: margin-top 1s;
   transition-delay: margin-top 0.3s;
 
