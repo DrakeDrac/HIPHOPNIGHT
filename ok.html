@@ -346,13 +346,16 @@
         return null;
       }
       function used() {
-        db.collection("payments").doc(txn).set(
-          {
-            used: true,
-          },
-          { merge: true }
-        );
-        window.open("./ok.html", "_self");
+        console.log(txn);
+        db.collection("payments")
+          .doc(txn)
+          .set(
+            {
+              used: true,
+            },
+            { merge: true }
+          )
+          .then(() => window.open("./ok.html", "_self"));
       }
       function getData(txn) {
         var docRef = db.collection("payments").doc(txn);
