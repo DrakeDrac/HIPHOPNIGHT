@@ -157,7 +157,7 @@
       let amount = 525;
       if (parseInt(count) > 3) amount = 2000;
       else amount = 525 * parseInt(count);
-      const qrcode = new QRCode(document.getElementById("qrcode"), {
+      /*const qrcode = new QRCode(document.getElementById("qrcode"), {
         text:
           "upi://pay?pa=ishaanjoshi97@oksbi&pn=HIPHOP%20NIGHT&am=" +
           amount +
@@ -167,7 +167,7 @@
         colorDark: "#000",
         colorLight: "#fff",
         correctLevel: QRCode.CorrectLevel.H,
-      });
+      });*/
       document.getElementById("price").innerHTML = "INR " + amount;
       function proceed() {
         window.open(
